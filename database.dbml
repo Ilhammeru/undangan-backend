@@ -1,0 +1,96 @@
+Project satulove {
+    database_type: 'MySql'
+}
+
+Table users {
+    id int [pk, increment]
+    email string [unique, not null]
+    password text [not null]
+    step_setting_id int
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table features {
+    id int [pk, increment]
+    name string [not null]
+    template_path text
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table themes {
+    id int [pk, increment]
+    name string [not null]
+    path_to_theme text
+    path_to_decoration text
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table couple {
+    id int [pk, increment]
+    male_nickname string [not null]
+    male_name string [not null]
+    male_photo text
+    male_father string
+    male_mother string
+    male_instagram string
+    male_address text
+    female_nickname string
+    female_name string
+    female_photo text
+    female_father string
+    female_mother string
+    female_instagram string
+    female_address text
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table couple_feature {
+    id int [pk, increment]
+    couple_id int [not null]
+    feature_id int [not null]
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table wedding {
+    id int [pk, increment]
+    bride_id int [not null]
+    custom_quote text
+    quote_id
+    wedding_date date
+    timezone tinyint [note: '1 for WIB, 2 for WITA, 3 for WIT']
+    wedding_address text
+    wedding_longitude
+    wedding_latitude
+    has_marriage_contract boolean [default: `TRUE`]
+    created_at timestamp
+    updated_at timestamp
+}
+
+wedding_rundown_event {
+    id int [pk]
+    wedding_id int [not null]
+    title_marriage_contract string
+    marriage_contract_date date
+    marriage_contract_start_time time
+    marriage_contract_finsih_time time
+    marriage_contract_address text
+    marriage_contract_longitude string
+    marriage_contract_latitude string
+}
+
+Table invitation_setting {
+    id int [pk, increment]
+    
+}
+
+Table quote {
+    id int [pk, increment]
+    quote text
+    created_at timestamp
+    updated_at timestamp
+}
