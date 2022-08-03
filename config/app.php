@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'asia/jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Laravel\Passport\PassportServiceProvider::class,
         /*
          * Application Service Providers...
          */
